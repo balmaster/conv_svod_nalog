@@ -29,7 +29,7 @@ def convert(options):
     srcAsUri = OsPathToUri(options.inputFile)
     source = InputSource.DefaultFactory.fromUri(srcAsUri)
 
-    ssAsUri = OsPathToUri("prepare_data.xsl")
+    ssAsUri = OsPathToUri(options.transformFile)
     transform = InputSource.DefaultFactory.fromUri(ssAsUri)
 
     processor.appendStylesheet(transform)
@@ -73,6 +73,7 @@ def convert(options):
 
 parser = OptionParser()
 parser.add_option("-i", "--input-file", action="store", dest="inputFile", help="input file name", default=None)
+parser.add_option("-t", "--transform-file", action="store", dest="transformFile", help="input file name", default='prepare_data.xsl')
 
 (options, args) = parser.parse_args()
 
@@ -81,6 +82,7 @@ if not options.inputFile:
     parser.print_help()
     sys.exit(1)
 
+print 'converting...'
 convert(options)
 
 sys.exit(0)
