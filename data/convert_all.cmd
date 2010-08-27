@@ -1,0 +1,1 @@
+for /f %%i in ('dir /b *.xml') do convert -i %%i

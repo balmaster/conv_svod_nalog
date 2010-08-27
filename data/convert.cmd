@@ -1,0 +1,1 @@
+python.exe ..\src\conv_svod_nalog.py -t ..\src\prepare_data.xsl %*
